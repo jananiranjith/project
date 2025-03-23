@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic-Tac-Toe Emojis</title>
+    <!-- Emoji CSS -->
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
+    <!-- My styles -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- My script -->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Player options -->
+    <div class="screen options-screen" id="options-screen">
+      <h1>Tic-Tac-Toe Emojis</h1>
+      <ul class="players-options">
+         <li class="player-options">
+            <label for="player1-name">Player 1</label>
+            <input
+               type="text"
+               name="player1-name"
+               id="player1-name"
+               placeholder="your name"
+               data-player-name
+               />
+            <span class="player-emoji selecting" data-player-emoji="selecting">
+            <i
+               class="em-svg em-x"
+               aria-role="presentation"
+               aria-label="CROSS MARK"
+               ></i>
+            </span>
+         </li>
+         <li class="player-options">
+            <label for="player2-name">Player 2</label>
+            <input
+               type="text"
+               name="player2-name"
+               id="player2-name"
+               placeholder="your name"
+               data-player-name
+               />
+            <span class="player-emoji" data-player-emoji="">
+            <i
+               class="em-svg em-o"
+               aria-role="presentation"
+               aria-label="HEAVY LARGE CIRCLE"
+               ></i>
+            </span>
+         </li>
+      </ul>
+      <ul class="emojis" id="emojis">
+         <li><i class="em em-m" aria-role="presentation" aria-label="CIRCLED LATIN CAPITAL LETTER M"></i></li>
+         <li><i class="em em-x" aria-role="presentation" aria-label="CROSS MARK"></i></li>
+         <li><i class="em em-o" aria-role="presentation" aria-label="HEAVY LARGE CIRCLE"></i></li>
+         <li><i class="em em-anguished" aria-role="presentation" aria-label="ANGUISHED FACE"></i></li>
+         <li><i class="em em-angry" aria-role="presentation" aria-label="ANGRY FACE"></i></li>
+         <li><i class="em em-astonished" aria-role="presentation" aria-label="ASTONISHED FACE"></i></li>
+         <li><i class="em em-blush" aria-role="presentation" aria-label="SMILING FACE WITH SMILING EYES"></i></li>
+         <li><i class="em em-cold_sweat" aria-role="presentation" aria-label="FACE WITH OPEN MOUTH AND COLD SWEAT"></i></li>
+         <li><i class="em em-confused" aria-role="presentation" aria-label="CONFUSED FACE"></i></li>
+         <li><i class="em em-confounded" aria-role="presentation" aria-label="CONFOUNDED FACE"></i></li>
+         <li><i class="em em-cry" aria-role="presentation" aria-label="CRYING FACE"></i></li>
+         <li><i class="em em-disappointed" aria-role="presentation" aria-label="DISAPPOINTED FACE"></i></li>
+         <li><i class="em em-disappointed_relieved" aria-role="presentation" aria-label="DISAPPOINTED BUT RELIEVED FACE"></i></li>
+         <li><i class="em em-dizzy_face" aria-role="presentation" aria-label="DIZZY FACE"></i></li>
+         <li><i class="em em-drooling_face" aria-role="presentation" aria-label="DROOLING FACE"></i></li>
+         <li><i class="em em-exploding_head" aria-role="presentation" aria-label="SHOCKED FACE WITH EXPLODING HEAD"></i></li>
+         <li><i class="em em-expressionless" aria-role="presentation" aria-label="EXPRESSIONLESS FACE"></i></li>
+         <li><i class="em em-face_vomiting" aria-role="presentation" aria-label="FACE WITH OPEN MOUTH VOMITING"></i></li>
+         <li><i class="em em-face_with_cowboy_hat" aria-role="presentation" aria-label="FACE WITH COWBOY HAT"></i></li>
+         <li><i class="em em-face_with_hand_over_mouth" aria-role="presentation" aria-label="SMILING FACE WITH SMILING EYES AND HAND COVERING MOUTH"></i></li>
+         <li><i class="em em-face_with_head_bandage" aria-role="presentation" aria-label="FACE WITH HEAD-BANDAGE"></i></li>
+         <li><i class="em em-face_with_monocle" aria-role="presentation" aria-label="FACE WITH MONOCLE"></i></li>
+         <li><i class="em em-face_with_raised_eyebrow" aria-role="presentation" aria-label="FACE WITH ONE EYEBROW RAISED"></i></li>
+         <li><i class="em em-face_with_rolling_eyes" aria-role="presentation" aria-label="FACE WITH ROLLING EYES"></i></li>
+         <li><i class="em em-face_with_symbols_on_mouth" aria-role="presentation" aria-label="SERIOUS FACE WITH SYMBOLS COVERING MOUTH"></i></li>
+         <li><i class="em em-face_with_thermometer" aria-role="presentation" aria-label="FACE WITH THERMOMETER"></i></li>
+         <li><i class="em em-fearful" aria-role="presentation" aria-label="FEARFUL FACE"></i></li>
+         <li><i class="em em-frowning" aria-role="presentation" aria-label="FROWNING FACE WITH OPEN MOUTH"></i></li>
+         <li><i class="em em-full_moon_with_face" aria-role="presentation" aria-label="FULL MOON WITH FACE"></i></li>
+         <li><i class="em em-grimacing" aria-role="presentation" aria-label="GRIMACING FACE"></i></li>
+         <li><i class="em em-grin" aria-role="presentation" aria-label="GRINNING FACE WITH SMILING EYES"></i></li>
+         <li><i class="em em-grinning" aria-role="presentation" aria-label="GRINNING FACE"></i></li>
+         <li><i class="em em-heart_eyes" aria-role="presentation" aria-label="SMILING FACE WITH HEART-SHAPED EYES"></i></li>
+         <li><i class="em em-hugging_face" aria-role="presentation" aria-label="HUGGING FACE"></i></li>
+         <li><i class="em em-hushed" aria-role="presentation" aria-label="HUSHED FACE"></i></li>
+         <li><i class="em em-innocent" aria-role="presentation" aria-label="SMILING FACE WITH HALO"></i></li>
+         <li><i class="em em-joy" aria-role="presentation" aria-label="FACE WITH TEARS OF JOY"></i></li>
+         <li><i class="em em-kissing" aria-role="presentation" aria-label="KISSING FACE"></i></li>
+         <li><i class="em em-kissing_closed_eyes" aria-role="presentation" aria-label="KISSING FACE WITH CLOSED EYES"></i></li>
+         <li><i class="em em-kissing_heart" aria-role="presentation" aria-label="FACE THROWING A KISS"></i></li>
+         <li><i class="em em-kissing_smiling_eyes" aria-role="presentation" aria-label="KISSING FACE WITH SMILING EYES"></i></li>
+         <li><i class="em em-laughing" aria-role="presentation" aria-label="SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES"></i></li>
+         <li><i class="em em-lying_face" aria-role="presentation" aria-label="LYING FACE"></i></li>
+         <li><i class="em em-mask" aria-role="presentation" aria-label="FACE WITH MEDICAL MASK"></i></li>
+         <li><i class="em em-money_mouth_face" aria-role="presentation" aria-label="MONEY-MOUTH FACE"></i></li>
+         <li><i class="em em-nerd_face" aria-role="presentation" aria-label="NERD FACE"></i></li>
+         <li><i class="em em-neutral_face" aria-role="presentation" aria-label="NEUTRAL FACE"></i></li>
+         <li><i class="em em-no_mouth" aria-role="presentation" aria-label="FACE WITHOUT MOUTH"></i></li>
+         <li><i class="em em-open_mouth" aria-role="presentation" aria-label="FACE WITH OPEN MOUTH"></i></li>
+         <li><i class="em em-partying_face" aria-role="presentation" aria-label="FACE WITH PARTY HORN AND PARTY HAT"></i></li>
+         <li><i class="em em-pensive" aria-role="presentation" aria-label="PENSIVE FACE"></i></li>
+         <li><i class="em em-persevere" aria-role="presentation" aria-label="PERSEVERING FACE"></i></li>
+         <li><i class="em em-pleading_face" aria-role="presentation" aria-label="FACE WITH PLEADING EYES"></i></li>
+         <li><i class="em em-relaxed" aria-role="presentation" aria-label="WHITE SMILING FACE"></i></li>
+         <li><i class="em em-relieved" aria-role="presentation" aria-label="RELIEVED FACE"></i></li>
+         <li><i class="em em-rolling_on_the_floor_laughing" aria-role="presentation" aria-label="ROLLING ON THE FLOOR LAUGHING"></i></li>
+         <li><i class="em em-scream" aria-role="presentation" aria-label="FACE SCREAMING IN FEAR"></i></li>
+         <li><i class="em em-shushing_face" aria-role="presentation" aria-label="FACE WITH FINGER COVERING CLOSED LIPS"></i></li>
+         <li><i class="em em-sleeping" aria-role="presentation" aria-label="SLEEPING FACE"></i></li>
+         <li><i class="em em-sleepy" aria-role="presentation" aria-label="SLEEPY FACE"></i></li>
+         <li><i class="em em-slightly_frowning_face" aria-role="presentation" aria-label="SLIGHTLY FROWNING FACE"></i></li>
+         <li><i class="em em-slightly_smiling_face" aria-role="presentation" aria-label="SLIGHTLY SMILING FACE"></i></li>
+         <li><i class="em em-smile" aria-role="presentation" aria-label="SMILING FACE WITH OPEN MOUTH AND SMILING EYES"></i></li>
+         <li><i class="em em-smiley" aria-role="presentation" aria-label="SMILING FACE WITH OPEN MOUTH"></i></li>
+         <li><i class="em em-smiling_face_with_3_hearts" aria-role="presentation" aria-label="SMILING FACE WITH SMILING EYES AND THREE HEARTS"></i></li>
+         <li><i class="em em-smirk" aria-role="presentation" aria-label="SMIRKING FACE"></i></li>
+         <li><i class="em em-sneezing_face" aria-role="presentation" aria-label="SNEEZING FACE"></i></li>
+         <li><i class="em em-sob" aria-role="presentation" aria-label="LOUDLY CRYING FACE"></i></li>
+         <li><i class="em em-star-struck" aria-role="presentation" aria-label="GRINNING FACE WITH STAR EYES"></i></li>
+         <li><i class="em em-stuck_out_tongue" aria-role="presentation" aria-label="FACE WITH STUCK-OUT TONGUE"></i></li>
+         <li><i class="em em-stuck_out_tongue_closed_eyes" aria-role="presentation" aria-label="FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES"></i></li>
+         <li><i class="em em-stuck_out_tongue_winking_eye" aria-role="presentation" aria-label="FACE WITH STUCK-OUT TONGUE AND WINKING EYE"></i></li>
+         <li><i class="em em-sunglasses" aria-role="presentation" aria-label="SMILING FACE WITH SUNGLASSES"></i></li>
+         <li><i class="em em-sweat" aria-role="presentation" aria-label="FACE WITH COLD SWEAT"></i></li>
+         <li><i class="em em-sweat_smile" aria-role="presentation" aria-label="SMILING FACE WITH OPEN MOUTH AND COLD SWEAT"></i></li>
+         <li><i class="em em-thinking_face" aria-role="presentation" aria-label="THINKING FACE"></i></li>
+         <li><i class="em em-tired_face" aria-role="presentation" aria-label="TIRED FACE"></i></li>
+         <li><i class="em em-triumph" aria-role="presentation" aria-label="FACE WITH LOOK OF TRIUMPH"></i></li>
+         <li><i class="em em-unamused" aria-role="presentation" aria-label="UNAMUSED FACE"></i></li>
+         <li><i class="em em-upside_down_face" aria-role="presentation" aria-label="UPSIDE-DOWN FACE"></i></li>
+         <li><i class="em em-weary" aria-role="presentation" aria-label="WEARY FACE"></i></li>
+         <li><i class="em em-white_frowning_face" aria-role="presentation" aria-label=""></i></li>
+         <li><i class="em em-wink" aria-role="presentation" aria-label="WINKING FACE"></i></li>
+         <li><i class="em em-woozy_face" aria-role="presentation" aria-label="FACE WITH UNEVEN EYES AND WAVY MOUTH"></i></li>
+         <li><i class="em em-worried" aria-role="presentation" aria-label="WORRIED FACE"></i></li>
+         <li><i class="em em-yum" aria-role="presentation" aria-label="FACE SAVOURING DELICIOUS FOOD"></i></li>
+         <li><i class="em em-zany_face" aria-role="presentation" aria-label="GRINNING FACE WITH ONE LARGE AND ONE SMALL EYE"></i></li>
+         <li><i class="em em-zipper_mouth_face" aria-role="presentation" aria-label="ZIPPER-MOUTH FACE"></i></li>
+         <li><i class="em em-male-technologist" aria-role="presentation" aria-label=""></i></li>
+         <li><i class="em em-female-technologist" aria-role="presentation" aria-label=""></i></li>
+         <li><i class="em em-alien" aria-role="presentation" aria-label="EXTRATERRESTRIAL ALIEN"></i></li>
+         <li><i class="em em-hankey" aria-role="presentation" aria-label="PILE OF POO"></i></li>
+         <li><i class="em em-baby_chick" aria-role="presentation" aria-label="BABY CHICK"></i></li>
+         <li><i class="em em-dragon_face" aria-role="presentation" aria-label="DRAGON FACE"></i></li>
+         <li><i class="em em-bear" aria-role="presentation" aria-label="BEAR FACE"></i></li>
+         <li><i class="em em-hamster" aria-role="presentation" aria-label="HAMSTER FACE"></i></li>
+         <li><i class="em em-cat" aria-role="presentation" aria-label="CAT FACE"></i></li>
+         <li><i class="em em-dog" aria-role="presentation" aria-label="DOG FACE"></i></li>
+         <li><i class="em em-wolf" aria-role="presentation" aria-label="WOLF FACE"></i></li>
+         <li><i class="em em-fox_face" aria-role="presentation" aria-label="FOX FACE"></i></li>
+         <li><i class="em em-tiger" aria-role="presentation" aria-label="TIGER FACE"></i></li>
+         <li><i class="em em-lion_face" aria-role="presentation" aria-label="LION FACE"></i></li>
+         <li><i class="em em-horse" aria-role="presentation" aria-label="HORSE FACE"></i></li>
+         <li><i class="em em-monkey_face" aria-role="presentation" aria-label="MONKEY FACE"></i></li>
+         <li><i class="em em-panda_face" aria-role="presentation" aria-label="PANDA FACE"></i></li>
+         <li><i class="em em-cow" aria-role="presentation" aria-label="COW FACE"></i></li>
+         <li><i class="em em-pig" aria-role="presentation" aria-label="PIG FACE"></i></li>
+         <li><i class="em em-dolphin" aria-role="presentation" aria-label="DOLPHIN"></i></li>
+         <li><i class="em em-apple" aria-role="presentation" aria-label="RED APPLE"></i></li>
+         <li><i class="em em-green_apple" aria-role="presentation" aria-label="GREEN APPLE"></i></li>
+         <li><i class="em em-banana" aria-role="presentation" aria-label="BANANA"></i></li>
+         <li><i class="em em-coconut" aria-role="presentation" aria-label="COCONUT"></i></li>
+         <li><i class="em em-pineapple" aria-role="presentation" aria-label="PINEAPPLE"></i></li>
+         <li><i class="em em-lemon" aria-role="presentation" aria-label="LEMON"></i></li>
+         <li><i class="em em-tangerine" aria-role="presentation" aria-label="TANGERINE"></i></li>
+         <li><i class="em em-avocado" aria-role="presentation" aria-label="AVOCADO"></i></li>
+         <li><i class="em em-strawberry" aria-role="presentation" aria-label="STRAWBERRY"></i></li>
+         <li><i class="em em-grapes" aria-role="presentation" aria-label="GRAPES"></i></li>
+         <li><i class="em em-hamburger" aria-role="presentation" aria-label="HAMBURGER"></i></li>
+         <li><i class="em em-pizza" aria-role="presentation" aria-label="SLICE OF PIZZA"></i></li>
+         <li><i class="em em-doughnut" aria-role="presentation" aria-label="DOUGHNUT"></i></li>
+         <li><i class="em em-soccer" aria-role="presentation" aria-label="SOCCER BALL"></i></li>
+         <li><i class="em em-baseball" aria-role="presentation" aria-label="BASEBALL"></i></li>
+         <li><i class="em em-basketball" aria-role="presentation" aria-label="BASKETBALL AND HOOP"></i></li>
+         <li><i class="em em-tennis" aria-role="presentation" aria-label="TENNIS RACQUET AND BALL"></i></li>
+         <li><i class="em em-football" aria-role="presentation" aria-label="AMERICAN FOOTBALL"></i></li>
+         <li><i class="em em-video_game" aria-role="presentation" aria-label="VIDEO GAME"></i></li>
+         <li><i class="em em-fire" aria-role="presentation" aria-label="FIRE"></i></li>
+         <li><i class="em em-zap" aria-role="presentation" aria-label="HIGH VOLTAGE SIGN"></i></li>
+      </ul>
+      <button class="accept-options" id="accept-options">Play!</button>
+   </div>
+    <!-- Board -->
+    <div class="screen board-container hide" id="board-container">
+      <div class="game-details">
+        <div class="player-turn turn" data-player-turn></div>
+        <div class="player-turn" data-player-turn></div>
+      </div>
+      <table class="board" id="board" data-game>
+        <tr class="row">
+          <td class="square" data-square="0"></td>
+          <td class="square" data-square="1"></td>
+          <td class="square" data-square="2"></td>
+        </tr>
+        <tr class="row">
+          <td class="square" data-square="3"></td>
+          <td class="square" data-square="4"></td>
+          <td class="square" data-square="5"></td>
+        </tr>
+        <tr class="row">
+          <td class="square" data-square="6"></td>
+          <td class="square" data-square="7"></td>
+          <td class="square" data-square="8"></td>
+        </tr>
+      </table>
+    </div>
+    <!-- Winning message -->
+    <div class="screen winning-container hide" id="winning-container">
+      <div class="winner-emoji" id="winner-emoji"></div>
+      <div
+        class="winning-message"
+        id="winning-message"
+      ></div>
+      <button class="restart-button" id="restart-button">Restart</button>
+    </div>
+  </body>
+</html>

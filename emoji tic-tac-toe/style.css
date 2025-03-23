@@ -1,0 +1,382 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/* 
+  A CSS only solution to :hover on touchscreens:
+  https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c
+*/
+
+/* 
+***************
+* MAIN STYLES *
+***************
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  :root {
+    /* Main variables */
+    --screen-padding: 2rem;
+    --button-color: white;
+    --button-background-color: white;
+    --button-filter: drop-shadow(0 0 0.25em yellow);
+    --hover-button-border-color: yellow;
+    --hover-button-background-color: black;
+    --border: 0.1rem solid black;
+    /* Options screen variables */
+    --border-size: 0.1rem;
+    --em-scale: scale(1.25);
+    --em-drop-shadow: drop-shadow(0 0 0.2em black);
+    --em-brightness: brightness(1.25);
+    /* Board screen variables */
+    --board-size: calc(100vmin - 2 * var(--screen-padding));
+    --square-size: calc(100% / 3);
+    --hover-square-background-color: rgba(100, 100, 100, 0.1);
+  }
+  
+  body {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: black;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 5vmin;
+  }
+  
+  footer {
+    padding: 0.5em;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    font-size: 0.75em;
+  }
+  
+  button {
+    font-size: inherit;
+    background-color: white;
+    border: var(--border);
+    padding: 0.25em 0.5em;
+  }
+  
+  button:enabled:active {
+    background-color: var(--hover-button-background-color);
+    color: var(--button-color);
+    border-color: var(--hover-button-border-color);
+    -webkit-filter: var(--button-filter);
+            filter: var(--button-filter);
+  }
+  
+  /* Auxiliar classes */
+  
+  .screen {
+    padding: var(--screen-padding);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .hide {
+    display: none !important;
+  }
+  
+  /*
+  ******************
+  * OPTIONS SCREEN *
+  ******************
+  */
+  
+  .options-screen {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .options-screen > * {
+    margin: 0.5em 0;
+  }
+  
+  .options-screen ul {
+    list-style: none;
+  }
+  
+  .options-screen li {
+    display: inline-block;
+  }
+  
+  .options-screen h1 {
+    font-size: 1.5em;
+  }
+  
+  .players-options {
+    text-align: center;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  
+  .player-options input {
+    background-color: inherit;
+    color: inherit;
+    font-size: inherit;
+    border: none;
+    border-bottom: var(--border);
+    margin: 0 0.5em;
+    width: 40vw;
+    outline: none;
+  }
+  
+  .player-emoji {
+    display: inline-block;
+    padding: 0.5em;
+    border: var(--border);
+    border-radius: 0.2rem;
+    cursor: pointer;
+  }
+  
+  .player-emoji:not(.selecting) {
+    border-color: rgba(0, 0, 0, 0);
+  }
+  
+  .emojis {
+    line-height: 1.75em;
+    text-align: center;
+    overflow: auto;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  
+  .em:active {
+    -webkit-transform: var(--em-scale);
+        -ms-transform: var(--em-scale);
+            transform: var(--em-scale);
+    -webkit-filter: var(--em-brightness) var(--em-drop-shadow);
+            filter: var(--em-brightness) var(--em-drop-shadow);
+  }
+  
+  /*
+  ****************
+  * BOARD SCREEN *
+  ****************
+  */
+  
+  /* Board container */
+  
+  .board-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  /* Players turn */
+  
+  .game-details {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .game-details > :nth-child(1) {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  
+  .game-details > :nth-child(2) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  
+  .game-details > :nth-child(3) {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  
+  .game-details .em-svg {
+    font-size: 2em;
+  }
+  
+  .player-turn {
+    padding: 0.5em;
+  }
+  
+  .player-turn:not(.turn) {
+    -webkit-filter: brightness(0.75);
+            filter: brightness(0.75);
+  }
+  
+  /* Board */
+  
+  .board {
+    width: var(--board-size);
+    height: var(--board-size);
+    border-collapse: collapse;
+    margin: auto;
+  }
+  
+  .board .em-svg {
+    font-size: 3em;
+  }
+  
+  /* Borders */
+  
+  .square {
+    border: var(--border);
+    width: var(--square-size);
+    height: var(--square-size);
+    text-align: center;
+  }
+  
+  .row:first-child > .square {
+    border-top: none;
+  }
+  
+  .row:last-child > .square {
+    border-bottom: none;
+  }
+  
+  .square:first-child {
+    border-left: none;
+  }
+  
+  .square:last-child {
+    border-right: none;
+  }
+  
+  /* Touch */
+  
+  .square:not(.marked):active {
+    background-color: var(--hover-square-background-color);
+  }
+  
+  /*
+  ******************
+  * WINNING SCREEN *
+  ******************
+  */
+  
+  .winning-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 3em;
+  }
+  
+  .winning-message {
+    padding: 0.25em;
+    text-align: center;
+  }
+  
+  .restart-button {
+    font-size: 0.75em;
+  }
+  
+  /****************
+  * MEDIA QUERIES *
+  *****************/
+  
+  /* Mouse */
+  @media (hover: hover) and (pointer: fine) {
+    /* Main */
+    button:enabled:hover {
+      background-color: var(--hover-button-background-color);
+      color: var(--button-color);
+      border-color: var(--hover-button-border-color);
+      -webkit-filter: var(--button-filter);
+              filter: var(--button-filter);
+      cursor: pointer;
+    }
+    /* Options Screen */
+    .em:hover {
+      -webkit-transform: var(--em-scale);
+          -ms-transform: var(--em-scale);
+              transform: var(--em-scale);
+      -webkit-filter: var(--em-brightness) var(--em-drop-shadow);
+              filter: var(--em-brightness) var(--em-drop-shadow);
+    }
+    /* Board Screen */
+    .square:not(.marked):hover {
+      background-color: var(--hover-square-background-color);
+      cursor: pointer;
+    }
+  
+    .square.marked:hover {
+      cursor: not-allowed;
+    }
+  }
+  
+  /* Aspect ratio board screen */
+  @media (min-aspect-ratio: 3/4) {
+    :root {
+      --board-size: calc(75vmin - 2 * var(--screen-padding));
+    }
+  
+    .game-details .em-svg {
+      font-size: 1em;
+    }
+  
+    .board .em-svg {
+      font-size: 2em;
+    }
+  }
